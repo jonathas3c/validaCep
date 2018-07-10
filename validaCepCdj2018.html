@@ -94,7 +94,11 @@
 </head>
 <body>  
     <form method="get" action=".">
-        <label>
+      <label>
+        <input type="text" required id="numero"/>
+        <div class="label-text">Número/Complemento</div>
+      </label>  
+      <label>
           <input type="text" required id="cep" value="" size="10" maxlength="9"
           onblur="pesquisacep(this.value);" />
           <div class="label-text">CEP</div>
@@ -122,7 +126,7 @@ function limpa_formulário_cep() {
 
 function meu_callback(conteudo) {
 if (!("erro" in conteudo)) {
-    document.getElementById('endereco').value=(conteudo.logradouro + ", "+conteudo.bairro+", "+conteudo.localidade+", "+conteudo.uf+", "+document.getElementById('cep').value);
+    document.getElementById('endereco').value=(conteudo.logradouro + ", "+document.getElementById('numero').value+', '+conteudo.bairro+", "+conteudo.localidade+", "+conteudo.uf+", "+document.getElementById('cep').value);
     
 }
 else {
